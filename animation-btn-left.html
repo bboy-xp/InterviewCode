@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>普通动画</title>
+    <style>
+        .container {
+            height: 100vh;
+            width: 100vw;
+
+        }
+        .box {
+            margin-top: 50px;
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background-color: aqua;
+            /* animation: move 4s infinite linear; */
+        }
+        .animation-move {
+            animation: move 4s infinite linear;
+        }
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            50% {
+                left: 500px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="add()">点击动画</button>
+        <div id="box" class="box"></div>
+
+    </div>
+    <script>
+        let animating = false;
+        function add() {
+            const e = document.getElementById("box");
+            animating = !animating;
+            if (animating) {
+                e.className = "box animation-move"
+            }else {
+                e.className = "box";
+            }
+        }
+    </script>
+</body>
+</html>
